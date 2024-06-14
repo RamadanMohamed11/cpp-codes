@@ -250,6 +250,14 @@ public:
 			Lose = true;
 		else if (mySnake.snakeLocations.front()._y == 0 || mySnake.snakeLocations.front()._y == (myMap._height - 1))
 			Lose = true;
+		else
+		{
+			for (auto itr= mySnake.snakeLocations.begin()+1; itr != mySnake.snakeLocations.end(); itr++)
+			{
+				if ((*mySnake.snakeLocations.begin())._x == (*itr)._x && (*mySnake.snakeLocations.begin())._y == (*itr)._y)
+					return true;
+			}
+		}
 		return Lose;
 	}
 	void resetTheGame()
